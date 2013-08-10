@@ -9,6 +9,13 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Tabbed
 import XMonad.Layout.StackTile
+import XMonad.Layout.Grid
+import XMonad.Layout.ResizableTile
+import XMonad.Layout.IM
+import XMonad.Layout.ThreeColumns
+import XMonad.Layout.Circle
+import XMonad.Layout.PerWorkspace (onWorkspace)
+import XMonad.Layout.Fullscreen
 
 myTerminal = "lxterminal"
 
@@ -18,7 +25,9 @@ screenshots_dir = home_dir ++ "screenshots/"
 myLayouts = ( avoidStruts $ smartBorders $ 
               Tall 1 (3/100) (1/2) |||
               StackTile 1 (3/100) (1/2) ||| 
-              simpleTabbed ) |||
+              ResizableTall 1 (3/100) (1/2) [] 
+              ||| Grid
+            ) |||
             noBorders Full
 
 
@@ -50,15 +59,19 @@ myBar = "xmobar"
 
 myPP = xmobarPP { ppCurrent = xmobarColor "#429942" "" . wrap "<" ">" }
 
+myWorkspaces = ["1","2","3","4","5","6","7","8","9", "10", "11", "12"]
+
 myConfig = defaultConfig
-     { terminal    = myTerminal
-     , modMask     = mod4Mask
-     , borderWidth = 1
-     , focusFollowsMouse  = True
-     , startupHook = myStartupHook
-     , layoutHook = myLayouts
-     , manageHook = manageHook defaultConfig <+> manageDocks
-     , logHook    = myLog >>= xmonadPropLog
+     { 
+           terminal           = myTerminal
+         , modMask            = mod4Mask
+         , borderWidth        = 1
+         , focusFollowsMouse  = True
+         , startupHook        = myStartupHook
+         , workspaces         = myWorkspaces
+         , layoutHook         = myLayouts
+         , manageHook         = manageHook defaultConfig <+> manageDocks
+         , logHook            = myLog >>= xmonadPropLog
      }
      `additionalKeysP` myKeys 
 
