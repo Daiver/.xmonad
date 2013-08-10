@@ -36,6 +36,7 @@ myKeys = [ ("M-<Right>",   nextWS)
 myStartupHook = do
     spawn "feh --bg-max Downloads/507321-1366x768.jpg"
     spawn "setxkbmap 'us,ru' ',winkeys' 'grp:alt_shift_toggle'"
+    --spawn "killall xmobar"
 
 --main = xmonad $ 
 myLog = dynamicLogString xmobarPP {
@@ -63,6 +64,6 @@ myConfig = defaultConfig
 
 
 main = do
-    xmproc <- spawnPipe "/usr/bin/xmobar /home/daiver/.xmonad/xmobarrc "
+    --xmproc <- spawnPipe "/usr/bin/xmobar /home/daiver/.xmonad/xmobarrc "
     --spawn "trayer --edge top --align left --margin 0  --widthtype pixel --width 1363 --heighttype pixel --height 20 --tint 0x0 --alpha 0 --transparent true"
-    xmonad myConfig
+    xmonad =<< xmobar myConfig

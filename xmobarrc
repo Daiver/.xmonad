@@ -2,12 +2,12 @@
 
 
 Config { font = "xft:DejaVu Sans Mono:size=10:bold:antialias=true",
-         bgColor = "#FF0000",
+         bgColor = "#aa0000",
          fgColor = "#000000",
-         position = Static { xpos = 0 , ypos = 0, width = 230, height = 20 },
+         position = Static { xpos = 1140 , ypos = 0, width = 230, height = 20 },
          commands = [ 
-           Run Date "%a %b %_d %Y %H:%M:%S" "date" 10,
-           Run Kbd [("us", "US"), ("ru", "RU")] 
+           Run Kbd [("us", "US"), ("ru", "RU")],
+           Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
            ],
-         template = "<fc=green>%kbd%</fc> %date%"
+         template = "%date% <fc=green>%kbd%</fc>"
        }
