@@ -39,7 +39,8 @@ myKeys = [ ("M-<Right>",   nextWS)
          , ("M1-<F4>",     kill)
          , ("M-s h",       spawn "xmessage 'hello, xmonad!'")
          , ("<Print>",     spawn $"scrot -e 'mv $f " ++ screenshots_dir ++ ".'") 
-         , ("M-g",         spawn "chromium")
+         , ("M-g",         spawn "google-chrome")
+         --, ("M-g",         spawn "chromium")
          ]
 
 myStartupHook = do
