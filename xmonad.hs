@@ -32,6 +32,7 @@ myLayouts = ( avoidStruts $ smartBorders $
 
 
 myKeys = [ ("M-<Right>",   nextWS)
+         , ("M-S-q",       spawn "xmonad --recompile && xmonad --restart")
          , ("M-<Return>",  spawn myTerminal)
          , ("M-S-<Right>", windows W.swapDown)
          , ("M-<Left>",    prevWS)
@@ -44,7 +45,10 @@ myKeys = [ ("M-<Right>",   nextWS)
          ]
 
 myStartupHook = do
-    spawn "feh --bg-max Downloads/507321-1366x768.jpg"
+    --spawn "feh --bg-max Downloads/507321-1366x768.jpg"
+    --spawn "feh --bg-max Downloads/344327-1366x768.jpg "
+    --spawn "feh --bg-max Downloads/507321-1366x768.jpg"
+    spawn "feh --bg-max Downloads/VjHxOSpOyjw.jpg"
     spawn "setxkbmap 'us,ru' ',winkeys' 'grp:alt_shift_toggle'"
     --spawn "killall xmobar"
 
