@@ -6,7 +6,8 @@ import Data.List.Split(splitOn)
 
 simplify = foldl (++) []
 
-url = "http://api.openweathermap.org/data/2.5/weather?q=Voronez,ru"
+city = "Voronez,ru"
+url = "http://api.openweathermap.org/data/2.5/weather?q=" ++ city
 
 temp_template = "\"temp\""
 desc_template = "\"description\""
@@ -21,5 +22,6 @@ processTemp t = (read t) - 273
 
 main
     = do
-        putStr .show . processTemp . findData temp_template . snd =<< curlGetString url []
+        putStr . (\x -> "T:" ++ city ++ "-" ++ (show x)) . processTemp . findData temp_template . snd =<< curlGetString url []
+
 
