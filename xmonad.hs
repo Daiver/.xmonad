@@ -21,6 +21,9 @@ myTerminal = "lxterminal"
 
 home_dir = "/home/daiver/"
 screenshots_dir = home_dir ++ "screenshots/"
+backgrounds_dir = home_dir ++ "backgrounds/"
+
+set_rnd_bg_com = "python " ++ backgrounds_dir ++ "set_random_bg.py"
 
 myLayouts = ( avoidStruts $ smartBorders $ 
               Tall 1 (3/100) (1/2) |||
@@ -39,7 +42,8 @@ myKeys = [ ("M-<Right>",   nextWS)
          , ("M-S-<Left>",  windows W.swapUp)
          , ("M1-<F4>",     kill)
          , ("M-s h",       spawn "xmessage 'hello, xmonad!'")
-         , ("<Print>",     spawn $"scrot -e 'mv $f " ++ screenshots_dir ++ ".'") 
+         , ("<Print>",     spawn $ "scrot -e 'mv $f " ++ screenshots_dir ++ ".'") 
+         , ("M-v",         spawn $ set_rnd_bg_com)
          , ("M-g",         spawn "google-chrome")
          --, ("M-g",         spawn "chromium")
          ]
@@ -48,7 +52,8 @@ myStartupHook = do
     --spawn "feh --bg-max Downloads/507321-1366x768.jpg"
     --spawn "feh --bg-max Downloads/344327-1366x768.jpg "
     --spawn "feh --bg-max Downloads/507321-1366x768.jpg"
-    spawn "feh --bg-max Downloads/VjHxOSpOyjw.jpg"
+    --spawn "feh --bg-max Downloads/VjHxOSpOyjw.jpg"
+    spawn set_rnd_bg_com
     spawn "setxkbmap 'us,ru' ',winkeys' 'grp:alt_shift_toggle'"
     --spawn "killall xmobar"
 
