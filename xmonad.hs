@@ -55,6 +55,7 @@ myStartupHook = do
     --spawn "feh --bg-max Downloads/VjHxOSpOyjw.jpg"
     spawn set_rnd_bg_com
     spawn "setxkbmap 'us,ru' ',winkeys' 'grp:alt_shift_toggle'"
+    spawn "nm-applet"
     --spawn "killall xmobar"
 
 --main = xmonad $ 
@@ -65,9 +66,8 @@ myLog = dynamicLogString xmobarPP {
   ppHiddenNoWindows = xmobarColor "darkgray" "",
   ppLayout          = xmobarColor "orange" "" }
 
-myBar = "xmobar"
 
-myPP = xmobarPP { ppCurrent = xmobarColor "#429942" "" . wrap "<" ">" }
+--myPP = xmobarPP { ppCurrent = xmobarColor "#429942" "" . wrap "<" ">" }
 
 myWorkspaces = ["1","2","3","4","5","6","7","8","9", "10", "11", "12"]
 
@@ -80,8 +80,8 @@ myConfig = defaultConfig
          , startupHook        = myStartupHook
          , workspaces         = myWorkspaces
          , layoutHook         = myLayouts
-         , manageHook         = manageHook defaultConfig <+> manageDocks
-         , logHook            = myLog >>= xmonadPropLog
+         --, manageHook         = manageHook defaultConfig <+> manageDocks
+         --, logHook            = myLog >>= xmonadPropLog
      }
      `additionalKeysP` myKeys 
 
