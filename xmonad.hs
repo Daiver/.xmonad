@@ -56,6 +56,9 @@ myStartupHook = do
     spawn set_rnd_bg_com
     spawn "setxkbmap 'us,ru' ',winkeys' 'grp:alt_shift_toggle'"
     spawn "nm-applet"
+    spawn "volumeicon"
+    spawn "parcellite"
+    spawn "tint2"
     --spawn "killall xmobar"
 
 --main = xmonad $ 
