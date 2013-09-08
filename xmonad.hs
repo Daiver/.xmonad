@@ -48,6 +48,9 @@ myKeys = [ ("M-<Right>",   nextWS)
          --, ("M-g",         spawn "chromium")
          ]
 
+spawnOnce name = 
+    spawn $ "if [ $(ps aux | grep -e '" ++ name ++ "$' | grep -v grep | wc -l | tr -s \"\\n\") -eq 0 ]; then " ++ name ++ " ; fi"
+
 myStartupHook = do
     --spawn "feh --bg-max Downloads/507321-1366x768.jpg"
     --spawn "feh --bg-max Downloads/344327-1366x768.jpg "
@@ -55,11 +58,10 @@ myStartupHook = do
     --spawn "feh --bg-max Downloads/VjHxOSpOyjw.jpg"
     spawn set_rnd_bg_com
     spawn "setxkbmap 'us,ru' ',winkeys' 'grp:alt_shift_toggle'"
-    spawn "xxkb"
-    spawn "nm-applet"
-    spawn "volumeicon"
-    spawn "parcellite"
-    spawn "tint2"
+    spawnOnce "nm-applet"
+    spawnOnce "volumeicon"
+    spawnOnce "parcellite"
+    --spawnOnce "tint2"
     --spawn "killall xmobar"
 
 --main = xmonad $ 
@@ -90,7 +92,8 @@ myConfig = defaultConfig
      `additionalKeysP` myKeys 
 
 
+
 main = do
     --xmproc <- spawnPipe "/usr/bin/xmobar /home/daiver/.xmonad/xmobarrc "
-    --spawn "trayer --edge top --align left --margin 0  --widthtype pixel --width 1363 --heighttype pixel --height 20 --tint 0x0 --alpha 0 --transparent true"
+    spawnOnce "trayer --edge top --align left --margin 0  --widthtype pixel --width 137 --margin 700 --heighttype pixel --height 8 --tint 0x0 --alpha 0 --transparent true"
     xmonad =<< xmobar myConfig
