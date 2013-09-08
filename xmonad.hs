@@ -61,6 +61,7 @@ myStartupHook = do
     spawnOnce "nm-applet"
     spawnOnce "volumeicon"
     spawnOnce "parcellite"
+    spawnOnce "xxkb"
     --spawnOnce "tint2"
     --spawn "killall xmobar"
 
