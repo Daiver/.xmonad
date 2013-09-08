@@ -55,6 +55,7 @@ myStartupHook = do
     --spawn "feh --bg-max Downloads/VjHxOSpOyjw.jpg"
     spawn set_rnd_bg_com
     spawn "setxkbmap 'us,ru' ',winkeys' 'grp:alt_shift_toggle'"
+    spawn "xxkb"
     spawn "nm-applet"
     spawn "volumeicon"
     spawn "parcellite"
