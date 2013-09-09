@@ -62,6 +62,7 @@ myStartupHook = do
     spawnOnce "volumeicon"
     spawnOnce "parcellite"
     spawnOnce "xxkb"
+    spawnOnce "trayer --edge top --align left --margin 0  --widthtype pixel --width 137 --margin 700 --heighttype pixel --height 8 --tint 0x0 --alpha 0 --transparent true"
     --spawnOnce "tint2"
     --spawn "killall xmobar"
 
@@ -96,5 +97,4 @@ myConfig = defaultConfig
 
 main = do
     --xmproc <- spawnPipe "/usr/bin/xmobar /home/daiver/.xmonad/xmobarrc "
-    spawnOnce "trayer --edge top --align left --margin 0  --widthtype pixel --width 137 --margin 700 --heighttype pixel --height 8 --tint 0x0 --alpha 0 --transparent true"
     xmonad =<< xmobar myConfig
